@@ -1,0 +1,9 @@
+<mat-toolbar color="{{header.toolbarColor }}">
+    <mat-toolbar-row>
+        <button mat-icon-button *ngIf="header.showMenuIcon">
+            <mat-icon (click)="menuClick($event)">menu</mat-icon>
+          </button>
+        <img class="logo-margin"src="{{header.logo}}">
+        <span>{{header.name}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>

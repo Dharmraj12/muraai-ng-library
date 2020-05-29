@@ -20,7 +20,10 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --if-present
+        npm run lint
+        npm run commons:build
+        npm run commons:package
+        npm run commons:install
         npm test
       env:
         CI: true

@@ -1,0 +1,14 @@
+
+    <mat-nav-list  *ngFor = "let menu of menuData" >
+        <a  mat-list-item  fxLayout="row" > 
+            <mat-icon (click)="onSidenavClose(menu)" >{{menu.icon}}</mat-icon> <span class="menu-margin" (click)="onSidenavClose(menu)">{{menu.name}}</span>
+        	<mat-icon class="menu-button"  *ngIf="menu.showExpendIcon" (click)="menu.isExpanded =!menu.isExpanded"[ngClass]="{'rotated' : menu.isExpanded}" >expand_more</mat-icon>
+        </a>
+        <a  mat-list-item fxLayout="row" class="submenu" [ngClass]="{'expanded' : menu.isExpanded}" *ngIf="menu.isExpanded">
+            <div  *ngFor = "let sub of menu.subMenu"> 
+                <div fxLayout="row"(click)="onSidenavClose(sub)"> 
+                    <mat-icon >{{sub.icon}}</mat-icon> <span class="menu-margin">{{sub.name}}</span>
+                </div>
+            </div>
+        </a>
+</mat-nav-list >
